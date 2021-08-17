@@ -1,6 +1,8 @@
 // app.js
 
 import express from "express";  //package.jsonにかかレテいるライブラリ名を記載する
+import cors from 'cors';
+
 // おみくじのrouterを読み込む
 import { omikujiRouter } from "./routes/omikuji.route.js";
 import { jankenRouter } from "./routes/janken.route.js";
@@ -8,6 +10,7 @@ import { tweetRouter } from './routes/tweet.route.js';
 
 const app = express();
 // ↓POSTでデータを受け取るために必要
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 const port = 3001;
